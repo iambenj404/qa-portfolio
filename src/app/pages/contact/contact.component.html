@@ -1,0 +1,82 @@
+<section id="contact" class="py-12">
+  <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">Get In Touch</h2>
+  <p class="text-center text-gray-600 dark:text-gray-400 mb-10">
+    I'm always open to discussing new opportunities or interesting projects. Feel free to reach out using the links below or the form.
+  </p>
+
+  <div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+    <div class="space-y-4 text-center mb-8">
+       <p class="text-lg text-gray-700 dark:text-gray-300">
+         <strong class="font-semibold text-gray-900 dark:text-white">Email:</strong>
+         <a href="mailto:itliongbenj@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline ml-2">itliongbenj&#64;gmail.com</a>
+       </p>
+       <p class="text-lg text-gray-700 dark:text-gray-300">
+         <strong class="font-semibold text-gray-900 dark:text-white">LinkedIn:</strong>
+         <a href="https://linkedin.com/in/benjamen-itliong" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline ml-2">Benjamen Itliong</a>
+       </p>
+        <p class="text-lg text-gray-700 dark:text-gray-300">
+         <strong class="font-semibold text-gray-900 dark:text-white">GitHub:</strong>
+         <a href="https://github.com/iambenj404" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline ml-2">iambenj404</a>
+       </p>
+       <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+        Location: Laoac, Ilocos Region, Philippines
+       </p>
+    </div>
+
+    <hr class="my-6 border-gray-300 dark:border-gray-600">
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-4">
+
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+        <input type="text" name="name" id="name" formControlName="name" required
+               class="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 dark:placeholder-gray-500"
+               placeholder="Your Name">
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+             class="mt-1 text-xs text-red-500 dark:text-red-400">
+          <div *ngIf="name?.errors?.['required']">Name is required.</div>
+        </div>
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Email</label>
+        <input type="email" name="email" id="email" formControlName="email" required
+               class="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 dark:placeholder-gray-500"
+               placeholder="you@example.com">
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+             class="mt-1 text-xs text-red-500 dark:text-red-400">
+          <div *ngIf="email?.errors?.['required']">Email is required.</div>
+          <div *ngIf="email?.errors?.['email']">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+        <textarea name="message" id="message" formControlName="message" rows="4" required
+                  class="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 dark:placeholder-gray-500"
+                  placeholder="Your message here..."></textarea>
+        <div *ngIf="message?.invalid && (message?.dirty || message?.touched)"
+             class="mt-1 text-xs text-red-500 dark:text-red-400">
+          <div *ngIf="message?.errors?.['required']">Message is required.</div>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit"
+                [disabled]="!contactForm.valid || isSubmitting"
+                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+          {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+        </button>
+      </div>
+
+       <div *ngIf="submitMessage" class="mt-4 p-3 rounded-md bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 text-green-700 dark:text-green-200 text-sm">
+         {{ submitMessage }}
+       </div>
+       <div *ngIf="submitError" class="mt-4 p-3 rounded-md bg-red-100 dark:bg-red-900 border border-red-300 dark:border-red-700 text-red-700 dark:text-red-200 text-sm">
+         {{ submitError }}
+       </div>
+
+    </form>
+
+  </div>
+</section>

@@ -1,0 +1,7 @@
+.nav-link {
+  @apply text-white opacity-80 hover:opacity-100 transition duration-300 px-3 py-2 rounded-md text-sm font-medium;
+}
+
+.active-link {
+  @apply opacity-100 bg-white bg-opacity-20;
+}

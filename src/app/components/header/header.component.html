@@ -1,0 +1,20 @@
+<header class="bg-gradient-to-r from-blue-600 to-indigo-700 dark:from-gray-800 dark:to-black shadow-md sticky top-0 z-50">
+  <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a routerLink="/" class="flex items-center group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-700 focus:ring-white rounded-full">
+      <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md
+                  group-hover:scale-110 group-hover:-rotate-12 group-hover:shadow-lg
+                  transition-all duration-300 ease-in-out">
+        <span class="font-bold text-lg text-blue-700">BI</span>
+      </div>
+    </a>
+
+    <ul class="flex space-x-4 md:space-x-6">
+      <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active-link" class="nav-link">About</a></li>
+      <li><a routerLink="/skills" routerLinkActive="active-link" class="nav-link">Skills</a></li>
+      <li><a routerLink="/experience" routerLinkActive="active-link" class="nav-link">Experience</a></li>
+      <li><a routerLink="/projects" routerLinkActive="active-link" class="nav-link">Projects</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active-link" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>

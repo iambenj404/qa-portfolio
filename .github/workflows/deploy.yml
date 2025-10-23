@@ -1,0 +1,35 @@
+# .github/workflows/deploy.yml
+name: Angular Deploy gh-pages Workflow # The name of your entire workflow
+
+on:
+  push:
+    branches:
+      - master # Trigger the workflow on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    # Crucial: Give the GITHUB_TOKEN write permission for deployment
+    permissions: 
+      contents: write 
+
+    steps:
+      # Step 1: Check out the repository code
+      - uses: actions/checkout@v4
+      
+      # Step 2: The Deployment Action (This is the block you provided)
+      - name: Angular Deploy gh-pages Actions
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+        with:
+          # Your required token input (Correctly indented 6 spaces under 'with:')
+          github_access_token: ${{ secrets.GH_PAGES_TOKEN }}
+          
+          # Optional inputs (Also 6 spaces under 'with:')
+          angular_project_dir: ./ 
+          build_configuration: production # Default is production, or use your custom config
+          base_href: /qa-portfolio/ # IMPORTANT for GitHub Pages URLs
+          deploy_branch: gh-pages
+          angular_dist_build_folder: dist/qa-portfolio/browser # Your custom dist folder
+          run_lint: false # Default behavior
+          skip_failure: false # Default behavior

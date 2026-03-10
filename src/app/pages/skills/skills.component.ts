@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioDataService, Skill } from '../../services/portfolio-data.service'; // Import service and interface
 import { CommonModule } from '@angular/common'; // Import CommonModule for *ngFor
+import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
 
 @Component({
   selector: 'app-skills',
   standalone: true, // Mark as standalone
-  imports: [CommonModule], // Import CommonModule because the template uses *ngFor
+  imports: [CommonModule, ScrollAnimateDirective], // Import CommonModule because the template uses *ngFor
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
